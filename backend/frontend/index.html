@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Study Buddy</title>
+    <link rel="stylesheet" href="/static/styles.css">
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true">SB</span>
+          <div>
+            <h1>Study Buddy</h1>
+            <p>Ton tuteur IA du bootcamp</p>
+          </div>
+        </div>
+        <button id="new-conversation" class="new-conversation" type="button">+ Nouvelle conversation</button>
+        <h2 class="section-label">Conversations</h2>
+        <nav id="conversation-list" class="conversation-list" aria-label="Conversations"></nav>
+        <p class="sidebar-footnote">Les notes personnelles restent privées et ne sont pas envoyées au modèle.</p>
+      </aside>
+
+      <main class="main-panel">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Tuteur spécialisé</p>
+            <h2>Concepts d'IA du bootcamp</h2>
+          </div>
+          <label class="model-picker" for="model-select">
+            <span>Modèle</span>
+            <select id="model-select" aria-label="Choisir le modèle"></select>
+          </label>
+        </header>
+
+        <section id="messages" class="messages" aria-live="polite" aria-label="Messages">
+          <div class="welcome-card">
+            <span class="welcome-icon" aria-hidden="true">✦</span>
+            <h3>On apprend ensemble.</h3>
+            <p>Pose une question sur l'IA, demande un indice ou ajoute une note personnelle.</p>
+          </div>
+        </section>
+
+        <div id="status" class="status" role="status"></div>
+
+        <section class="composer-area" aria-label="Écrire un message">
+          <form id="composer" class="composer">
+            <textarea id="message-input" rows="2" placeholder="Écris ta question..." aria-label="Ton message"></textarea>
+            <div class="composer-actions">
+              <button id="add-note" class="note-button" type="button">Ajouter une note privée</button>
+              <span class="composer-hint">Entrée pour envoyer · Maj + Entrée pour une nouvelle ligne</span>
+              <div class="send-actions">
+                <button id="stop-button" class="stop-button" type="button" hidden>Arrêter</button>
+                <button id="send-button" class="send-button" type="submit">Envoyer <span aria-hidden="true">↑</span></button>
+              </div>
+            </div>
+          </form>
+          <p class="privacy-note">Les réponses sont générées par un modèle externe. N'inclus aucune donnée sensible.</p>
+        </section>
+      </main>
+    </div>
+    <script src="/static/app.js" defer></script>
+  </body>
+</html>
